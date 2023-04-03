@@ -1,3 +1,41 @@
 body {
-    background-color: tan;
+  background-color: tan;
+}
+
+#formElements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+label {
+  text-align: center;
+}
+
+#submitContainer {
+  display: flex;
+  justify-content: center;
+}
+/* submit{
+    margin: auto;
+    display: block;
+} */
+
+button {
+  margin: 10px 0;
+}
+
+@media (min-width: 600px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #formElements{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #lists{
+    display: flex;
+    justify-content: space-around;
+  }
 }
