@@ -15,10 +15,9 @@ function clickHandler(event) {
         lastName: lastNameInput.value,
         progName: progNameInput.value,
       };
-      console.log(student);
       // check if an entry with student's info is in the array don't push it
       studentsArray.push(student);
-      addStudentToList()
+      addStudentToList(student);
       firstNameInput.value = "";
       lastNameInput.value = "";
       progNameInput.value = "";
@@ -30,7 +29,21 @@ function clickHandler(event) {
 //3.addeventlistneer
 bodyRef.addEventListener("click", clickHandler);
 
-function addStudentToList()
-{
-
+function addStudentToList(newStudent) {
+  console.log(newStudent);
+  //create an li
+  const newLi = document.createElement("li");
+  //select the two uls using id
+  const citList = document.querySelector("#CIT");
+  const cstList = document.querySelector("#CST");
+  //update the textContent of the li using student's firstName and lastName
+  newLi.textContent = `${newStudent.firstName} ${newStudent.lastName}`;
+  //using student's progName decide which ul to append the li to
+  if (newStudent.progName === "CIT") {
+    //program is CIT
+    citList.appendChild(newLi);
+  } else if (newStudent.progName === "CST") {
+    //progName is CST
+    cstList.appendChild(newLi);
+  }
 }
