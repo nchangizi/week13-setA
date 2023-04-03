@@ -16,7 +16,22 @@ function clickHandler(event) {
         progName: progNameInput.value,
       };
       // check if an entry with student's info is in the array don't push it
-      studentsArray.push(student);
+      let studentExists = false;
+      for (let item of studentsArray) {
+        if (
+          item.firstName === student.firstName &&
+          item.lastName === student.lastName &&
+          item.progName === student.progName
+        ) {
+          alert("The student already exists");
+          studentExists = true;
+          break;
+        }
+      }
+      if (studentExists === false) {
+        studentsArray.push(student);
+      }
+
       addStudentToList(student);
       firstNameInput.value = "";
       lastNameInput.value = "";
